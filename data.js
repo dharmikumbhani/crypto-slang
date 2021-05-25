@@ -1,4 +1,4 @@
-export const slangs = [
+const slangs = [
     {
         slang: 'FUD',
         fullForm: 'Fear Uncertainity Doubt',
@@ -24,3 +24,5 @@ export const slangs = [
         description: 'Dont make investments on the basis of only someone elses say, do your own research!'
     }
 ]
+
+export default slangs

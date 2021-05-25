@@ -3,6 +3,7 @@ import Image from 'next/image'
 import styled from 'styled-components';
 import { ThemeContext } from '../context/ThemeContext';
 import {useContext} from 'react';
+import slangs from '../data';
 
 
 const HeaderTitle = styled.h1`
@@ -26,6 +27,7 @@ export default function Home() {
       <main >
         <HeaderTitle>Hello</HeaderTitle>
         <button onClick={() => ( colorMode === 'light' ? setColorMode('dark') : setColorMode('light'))}>Change theme</button>
+        {slangs.map(slang => (<ul>{slang.slang}</ul>))}
       </main>
 
       <footer>
