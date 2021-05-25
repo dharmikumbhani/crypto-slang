@@ -1,8 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import { createContext, useState } from 'react';
 import styled from 'styled-components';
-import { ThemeContext } from './hooks/ThemeContext';
+import { ThemeContext } from '../context/ThemeContext';
 import {useContext} from 'react';
 
 
