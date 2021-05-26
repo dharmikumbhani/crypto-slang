@@ -1,6 +1,106 @@
 import {createContext, useState} from 'react';
-import {ThemeProvider} from 'styled-components'
+import {createGlobalStyle, ThemeProvider} from 'styled-components';
 import colors from '../styles/design_system/colors';
+import reset from '../styles/design_system/reset';
+import typography from '../styles/design_system/typography';
+import {borderRadius, shadows, bp} from '../styles/design_system/border-shadow-gutters-bp'
+
+
+const GlobalStyle = createGlobalStyle`
+  ${reset}
+  @font-face {
+      font-family: "CUFEL";
+      src: url("/fonts/CUFEL.woff") format('woff');
+      font-style: normal;
+      font-weight: 300;
+      font-display: swap;
+  }
+  html{
+    box-sizing: border-box;
+  }
+  :root {
+    /* Mobile */
+    --font-size-heading1: 44px;
+    --font-size-heading2: 30px;
+    --font-size-heading3: 14px;
+    --font-size-bodycopy1: 18px;
+    --font-size-bodycopy2: 16px;
+
+    /* Borders */
+    --border-radius-l: ${borderRadius.mobile.L};
+    --border-radius-m: ${borderRadius.mobile.M};
+    --border-radius-s: ${borderRadius.mobile.S};
+
+    /* Shadows Black */
+    --shadow-normal: ${shadows.normal}; 
+    --shadow-hover: ${shadows.hover};
+    
+    /* Transitions */
+    --transition-inactive: all .2s ease-in;
+    --transition-active: all .3s ease-out;
+
+    /* Gutters */
+    --gutter-screen: 12px; //Left and right spacing for Headers
+    --gutter-screen-TB: 12px;
+    --gutter-buttons: 12px;
+    --gutter-main-content: 0px;
+    --gutter-header-margin: 42px;
+
+    /* Tablet */
+    @media only screen and (min-width: ${bp.tablet}) {
+      transition: var(--transition-active);
+
+      --gutter-screen: 42px;
+      --gutter-screen-TB: 0px;
+      --gutter-buttons: 32px;
+      --gutter-main-content: 0px;
+      --gutter-header-margin: 52px;
+      
+      --font-size-heading1: 88px;
+      --font-size-heading2: 38px;
+      --font-size-heading3: 20px;
+
+      --border-radius-l: ${borderRadius.tablet.L};
+      --border-radius-m: ${borderRadius.tablet.M};
+      --border-radius-s: ${borderRadius.tablet.S};
+      
+    }
+
+    /* Desktop */
+    @media only screen and (min-width: ${bp.desktop}) {
+      transition: var(--transition-active);
+      
+      --gutter-screen: 74px;
+      --gutter-buttons: 32px;
+      --gutter-main-content: 262px; //336-74
+      --gutter-header-margin: 52px;
+    }
+  }
+  h1, h2, h3, h4, h5, p, button {
+    font-family: 'CUFEL';
+  }
+  h1 {
+      text-align: left;
+      font-size: var(--font-size-heading1);
+      @media only screen and (min-width: ${bp.tablet}) {
+        text-align: center;
+        }
+    }
+  h2 {font-size: var(--font-size-heading2);}
+  h3 {font-size: var(--font-size-heading3);}
+  button{
+    font-size: var(----font-size-bodycopy2);
+    box-shadow: var(--shadow-normal);
+    transition: var(---transition-inactive);
+  }
+  button:hover {
+    transition: var(--transition-active);
+    transform: perspective(500px) translateZ(20px);
+    /* box-shadow: var(--shadow-hover); */
+    box-shadow: 0px 0.2px 20px #00000020;
+  }
+`;
+
 
 function getInitialColorMode() {
     const persistedColorPreference = window.localStorage.getItem('color-mode');
@@ -37,6 +137,7 @@ export const ThemeContextProvider = ({ children }) => {
     return (
         <ThemeContext.Provider value={{ colorMode, setColorMode }}>
             <ThemeProvider theme= {colorMode === 'dark' ? darkTheme : lightTheme} >
+                <GlobalStyle/>
                 {children}
             </ThemeProvider>
         </ThemeContext.Provider>
