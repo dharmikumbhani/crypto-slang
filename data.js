@@ -25,6 +25,18 @@ const slangs = [
         description: 'Usually used by someone who will put his saving in highly volatile crypto.'
     },
     {
+        slang: 'Bullish',
+        fullForm: '',
+        emoji: '',
+        description: 'Someone who wishes the prices to go up.'
+    },
+    {
+        slang: 'Bearish',
+        fullForm: '',
+        emoji: '',
+        description: 'Someone who wishes the prices to go down.'
+    },
+    {
         slang: 'HODL',
         fullForm: 'Hold On for Dear Life',
         emoji: '',
@@ -83,6 +95,12 @@ const slangs = [
         fullForm: '',
         emoji: '',
         description: 'Short for Satoshis, the smallest unit of Bitcoin.'
+    },
+    {
+        slang: 'Bearwhale',
+        fullForm: '',
+        emoji: '',
+        description: 'Trader who believes prices will fall, a sell-off from bearwhale can temporarily flatten the market.'
     },
     {
         slang: 'No coiner',
