@@ -35,7 +35,12 @@ const  MainContent = styled.main`
     /* 58+0+83+16 */
     /* 72+0+83+16 */
     min-height: calc(100vh - (var(--gutter-screen-TB) + var(--gutter-header-margin) + 171px));
-    padding: 0px var(--gutter-main-content);
+    /* width: var(--gutter-main-content) */
+    width: 100%;
+    max-width: 927px;
+    margin-left: auto;
+    margin-right: auto;
+    /* padding: 0px var(--gutter-main-content); */
     @media only screen and (min-width: ${bp.tablet}) {
         /* 108+0+83+16 */
         min-height: calc(100vh - (var(--gutter-screen-TB) + var(--gutter-header-margin) + 207px));

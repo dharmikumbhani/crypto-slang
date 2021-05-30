@@ -43,8 +43,10 @@ const GlobalStyle = createGlobalStyle`
     --gutter-screen: 12px; //Left and right spacing for Headers
     --gutter-screen-TB: 12px;
     --gutter-buttons: 12px;
+    --gutter-slang-tabs: 12px;
     --gutter-main-content: 0px;
     --gutter-header-margin: 42px;
+    --gutter-search-margin: 42px;
 
     /* Tablet */
     @media only screen and (min-width: ${bp.tablet}) {
@@ -53,11 +55,12 @@ const GlobalStyle = createGlobalStyle`
       --gutter-screen: 42px;
       --gutter-screen-TB: 0px;
       --gutter-buttons: 32px;
-      --gutter-main-content: 0px;
+      /* --gutter-main-content: 0px; */
       --gutter-header-margin: 52px;
+      --gutter-search-margin: 52px;
       
       --font-size-heading1: 88px;
-      --font-size-heading2: 38px;
+      --font-size-heading2: 30px;
       --font-size-heading3: 20px;
 
       --border-radius-l: ${borderRadius.tablet.L};
@@ -72,11 +75,13 @@ const GlobalStyle = createGlobalStyle`
       
       --gutter-screen: 74px;
       --gutter-buttons: 32px;
-      --gutter-main-content: 262px; //336-74
+      --gutter-slang-tabs: 24px;
+      /* --gutter-main-content: 100px; //336-74 = 262 */
       --gutter-header-margin: 52px;
+      --gutter-search-margin: 52px;
     }
   }
-  h1, h2, h3, h4, h5, p, button {
+  h1, h2, h3, h4, h5, p, button, input, li {
     font-family: 'CUFEL';
   }
   h1 {
@@ -89,9 +94,9 @@ const GlobalStyle = createGlobalStyle`
   h2 {font-size: var(--font-size-heading2);}
   h3 {font-size: var(--font-size-heading3);}
   button{
-    font-size: var(----font-size-bodycopy2);
+    font-size: var(--font-size-bodycopy2);
     box-shadow: var(--shadow-normal);
-    transition: var(---transition-inactive);
+    transition: var(--transition-inactive);
   }
   button:hover {
     transition: var(--transition-active);
@@ -99,6 +104,9 @@ const GlobalStyle = createGlobalStyle`
     /* box-shadow: var(--shadow-hover); */
     box-shadow: 0px 0.2px 20px #00000020;
   }
+  /* input {
+    appearance: none;
+  } */
 `;
 
 

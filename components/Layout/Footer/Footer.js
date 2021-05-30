@@ -22,7 +22,7 @@ const FooterGroup = styled.footer`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-bottom: var(--);
+    /* margin-bottom: var(--); */
 `;
 const ButtonsGroup = styled.a`
     display: flex;
