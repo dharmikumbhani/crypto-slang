@@ -24,7 +24,7 @@ export default function Home() {
       </Head>
       <Search />
         <SlangsContainer>
-          {slangs.map(s => (<Slang slang={s.slang} />))}
+          {slangs.map((s,key) => (<Slang slang={s.slang} />))}
         </SlangsContainer>
     </div>
   )

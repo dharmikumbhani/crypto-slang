@@ -1,9 +1,44 @@
-import React from 'react'
+import React, {useState, useContext, useEffect} from 'react'
 import styled from 'styled-components';
+import useSound from 'use-sound';
+import { SoundOnContext } from '../context/ThemeContext';
+// import mediumPing from '../public'
 
 export default function Slang({slang}) {
+
+    // const [play] = useSound('/sounds/quietPing.mp3');
+    const {soundOn, setSoundOn} = useContext(SoundOnContext);
+    const [soundUrl, setSoundUrl] = useState('')
+    // const soundUrl = () => (soundOn?'/sounds/quietPing.mp3':'')ß
+    
+    useEffect(() => {
+        if(soundOn) {
+            setSoundUrl('/sounds/quietPing.mp3')
+        } else {
+            setSoundUrl('')
+        }
+    }, [soundOn])
+    console.log('SoundsURL', soundUrl);
+
+    const [play, { stop }] = useSound(
+        soundUrl,
+        { volume: 0.2 }
+    );
+    const [isHovering, setIsHovering] = React.useState(
+        false
+    );
+
+    
     return (
-        <Tab>
+        <Tab onMouseEnter={() => {
+            setIsHovering(true);
+            play();
+          }}
+          onMouseLeave={() => {
+            setIsHovering(false);
+            stop();
+          }} onClick={play}
+          >
             {/* <li> */}
                 <a href="#">
                     {slang}
@@ -29,7 +64,7 @@ const Tab = styled.li`
     line-height: normal;
     :hover{
         transition: var(--transition-active);
-        transform: perspective(500px) translateY(-10px) translateZ(2px);
+        transform: perspective(500px) translateY(-8px);
         /* box-shadow: var(--shadow-hover); */
         box-shadow: 0px 0.2px 20px #00000020;
         /* margin-right: 24px;

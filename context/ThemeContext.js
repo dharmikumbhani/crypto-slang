@@ -129,25 +129,29 @@ function getInitialColorMode() {
     // color themes, let's default to 'light'.
     return 'light';
 }
-
+export const SoundOnContext = createContext();
 export const ThemeContext = createContext();
 
 export const ThemeContextProvider = ({ children }) => {
     const darkTheme = colors.dark;
     const lightTheme = colors.light;
 
+    const [soundOn, setSoundOn] = useState(false);
     const [colorMode, rawSetColorMode] = useState('light');
+    
     const setColorMode = (value) => {
         rawSetColorMode(value);
         // Persist it on update
         window.localStorage.setItem('color-mode', value);
     };
     return (
-        <ThemeContext.Provider value={{ colorMode, setColorMode }}>
-            <ThemeProvider theme= {colorMode === 'dark' ? darkTheme : lightTheme} >
-                <GlobalStyle/>
-                {children}
-            </ThemeProvider>
-        </ThemeContext.Provider>
+        <SoundOnContext.Provider value={{soundOn, setSoundOn}}>
+          <ThemeContext.Provider value={{ colorMode, setColorMode }}>
+              <ThemeProvider theme= {colorMode === 'dark' ? darkTheme : lightTheme} >
+                  <GlobalStyle/>
+                  {children}
+              </ThemeProvider>
+          </ThemeContext.Provider>
+        </SoundOnContext.Provider>
     );
 };

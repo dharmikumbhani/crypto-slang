@@ -1,7 +1,8 @@
 import React, { useContext} from "react";
-import {ThemeContext} from '../../context/ThemeContext';
+import {ThemeContext, SoundOnContext} from '../../context/ThemeContext';
 
 function SoundOnIcon(props) {
+  // const {soundOn, setSoundOn} = useContext(SoundOnContext);
   const {colorMode, setColorMode} = useContext(ThemeContext);
   return (
     <svg

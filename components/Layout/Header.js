@@ -4,12 +4,13 @@ import SoundOffIcon from '../Icons/SoundOffIcon';
 import SoundOnIcon from '../Icons/SoundOnIcon';
 import LightModeIcon from '../Icons/LightModeIcon';
 import DarkModeIcon from '../Icons/DarkModeIcon';
-import {ThemeContext} from '../../context/ThemeContext';
+import {ThemeContext, SoundOnContext} from '../../context/ThemeContext';
 import {bp, BP} from '../../styles/design_system/border-shadow-gutters-bp';
 import useWindowSize from '../hooks/useWindowSize';
 
 export default function Header(props) {
-    const [sound, setSound] = useState(false);
+    // const [soundOn, setSound] = useState(false);
+    const {soundOn, setSoundOn} = useContext(SoundOnContext);
     const {colorMode, setColorMode} = useContext(ThemeContext);
 
     const windowSize = useWindowSize();
@@ -35,8 +36,8 @@ export default function Header(props) {
                 <SubHeading>the official resource to find meaning of crypto slangs</SubHeading>
             </TitleSpace>
             <ButtonsGroup>
-                <SoundIcon onClick={() => {console.log("Pressed", sound); setSound(!sound)}}>
-                    {sound === true? <SoundOnIcon size={size} /> : <SoundOffIcon size={size} />}
+                <SoundIcon onClick={() => {setSoundOn(!soundOn)}}>
+                    {soundOn === false? <SoundOnIcon size={size} /> : <SoundOffIcon size={size} />}
                 </SoundIcon>
                 <ColorMode onClick={()=> colorMode === 'light' ? setColorMode('dark'): setColorMode('light')}>
                     {colorMode === 'light' ? <DarkModeIcon size={size}/> : <LightModeIcon size={size} />}
