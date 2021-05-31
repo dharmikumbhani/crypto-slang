@@ -41,7 +41,7 @@ const SearchInput =  styled.input`
     display: block;
     max-width: 300px;
     padding-left: 42px;
-    border-radius: 10px;
+    // border-radius: 10px;
     border: 0px solid #00000000;
     border-bottom-color: ${props => props.theme.secondary1};
     border-bottom-width: 2px;
@@ -54,7 +54,8 @@ const SearchInput =  styled.input`
     background: url('/svgs/searchFill.svg') no-repeat;
     background-origin: content-box, content-box;
     background-position: -34px 50%;
-    line-height: normal;
+    /* line-height: normal; */
+    line-height: 130%;
 
     transition: var(--transition-inactive);
     ::placeholder {
@@ -77,6 +78,8 @@ const SearchInput =  styled.input`
         transition: var(--transition-active);
         outline: none;
         background-position: -34px 50%;
+        box-shadow: var(--shadows-active);
+        transform: perspective(500px) translateY(-8px);
     }
 `;
 
