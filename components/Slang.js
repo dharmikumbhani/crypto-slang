@@ -2,9 +2,10 @@ import React, {useState, useContext, useEffect} from 'react'
 import styled from 'styled-components';
 import useSound from 'use-sound';
 import { SoundOnContext } from '../context/ThemeContext';
+import {useSpring, animated} from 'react-spring';
 // import mediumPing from '../public'
 
-export default function Slang({slang}) {
+export default function Slang({slang, index, setSlangIndex}){
 
     // const [play] = useSound('/sounds/quietPing.mp3');
     const {soundOn, setSoundOn} = useContext(SoundOnContext);
@@ -18,7 +19,6 @@ export default function Slang({slang}) {
             setSoundUrl('')
         }
     }, [soundOn])
-    console.log('SoundsURL', soundUrl);
 
     const [play, { stop }] = useSound(
         soundUrl,
@@ -37,7 +37,12 @@ export default function Slang({slang}) {
           onMouseLeave={() => {
             setIsHovering(false);
             stop();
-          }} onClick={play}
+          }}
+          onClick={() => {
+              setSlangIndex(index)
+            //   setModalVisible(true)   
+          }}
+            // onClick={console.log(index)}
           >
             {/* <li> */}
                 <a href="#">
@@ -48,7 +53,7 @@ export default function Slang({slang}) {
     )
 }
 
-const Tab = styled.li`
+const Tab = styled(animated.li)`
     /* padding: 0px 6px 6px 6px; */
     padding: 6px;
     display: block;

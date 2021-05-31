@@ -11,7 +11,6 @@ const slangs = [
         emoji: '',
         description: 'Someone who sells too early'
     },
-    ,
     {
         slang: '🚀🌕',
         fullForm: 'To the Moon',

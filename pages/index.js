@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styled from 'styled-components';
 import { ThemeContext } from '../context/ThemeContext';
-import {useContext} from 'react';
+import {useContext, useState} from 'react';
 import slangs from '../data';
 import Search from '../components/Search';
 import Slang from '../components/Slang';
@@ -14,7 +14,8 @@ const HeaderTitle = styled.h1`
 `
 // https://buttercms.com/blog/next-js-tutorial-blog-styled-components
 export default function Home() {
-
+  const [slangIndex, setSlangIndex] = useState(0)
+  // console.log('index.js Slang', slangIndex)
   return (
     <div>
       <Head>
@@ -24,7 +25,7 @@ export default function Home() {
       </Head>
       <Search />
         <SlangsContainer>
-          {slangs.map((s,key) => (<Slang slang={s.slang} />))}
+          {slangs.map((s,index) => (<Slang setSlangIndex={setSlangIndex} slang={s.slang} index={index} key={s.slang} />))}
         </SlangsContainer>
     </div>
   )
