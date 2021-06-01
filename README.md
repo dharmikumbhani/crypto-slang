@@ -1,5 +1,3 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
 ## Crypto Slang
 
 The official(wannabe) resource for slangs used when dealing with cryptos1
@@ -11,7 +9,7 @@ Just submit the slang on [google form](https://forms.gle/hjYEWGzacgLwhXcK8) and 
 ## Development
 I have made this website in a lot of hurry so apologize for the poor code quality.
 Code Base:
-- Next.js
+- Next.js; This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 - Database: I did not want to set up an entire cloud database so have made a json object where i will keep adding more slangs as i keep receiving them.
 
 ### ToDo:
