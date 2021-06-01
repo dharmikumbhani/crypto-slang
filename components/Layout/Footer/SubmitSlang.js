@@ -1,11 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
+import Link from 'next/link';    
 
 export default function SubmitSlang() {
+    const SubmissionURL = 'https://forms.gle/hjYEWGzacgLwhXcK8';
     return (
-        <SubmitButton>
-            +&nbsp;Submit new slang
-        </SubmitButton>
+        <Link href={SubmissionURL} passHref={true}>
+            <SubmitButton onClick={()=> (window.location = "https://redirectsite.com")}>
+                +&nbsp;Submit new slang
+            </SubmitButton>
+        </Link>
     )
 }
 const SubmitButton = styled.button`

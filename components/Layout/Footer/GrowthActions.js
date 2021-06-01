@@ -1,14 +1,27 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import styled from 'styled-components'
 import SponsorIcon from '../../Icons/SponsorIcon';
 import TwitterFilledIcon from '../../Icons/TwitterFilledIcon';
 import GithubFilledIcon from '../../Icons/GithubFilledIcon';
+import Link from 'next/link';
 
 export default function GrowthActions({action}) {
+    const [link, setLink] = useState('')
+    useEffect(() => {
+        if(action === 'twitter') {
+            setLink('https://twitter.com/DharmiKumbhani')
+        } else if(action === 'github') {
+            setLink('https://github.com/')
+        } else if (action === 'sponsor') {
+            setLink('#')
+        }
+    }, [action])
     return (
-        <Button>
-            {action === 'sponsor' ? (<SponsorIcon/>) : action === 'twitter' ? <TwitterFilledIcon /> : <GithubFilledIcon />}
-        </Button>
+        <Link href={link} passHref={true}>
+            <Button>
+                {action === 'sponsor' ? (<SponsorIcon/>) : action === 'twitter' ? <TwitterFilledIcon /> : <GithubFilledIcon />}
+            </Button>
+        </Link>
     )
 }
 const Button = styled.button`

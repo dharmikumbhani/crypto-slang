@@ -24,7 +24,7 @@ const FooterGroup = styled.footer`
     align-items: center;
     /* margin-bottom: var(--); */
 `;
-const ButtonsGroup = styled.a`
+const ButtonsGroup = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
