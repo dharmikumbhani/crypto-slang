@@ -1,12 +1,14 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useContext} from 'react'
 import styled from 'styled-components'
 import SponsorIcon from '../../Icons/SponsorIcon';
 import TwitterFilledIcon from '../../Icons/TwitterFilledIcon';
 import GithubFilledIcon from '../../Icons/GithubFilledIcon';
 import Link from 'next/link';
+import {TipsContext} from '../../../context/ThemeContext'
 
 export default function GrowthActions({action}) {
     const [link, setLink] = useState('')
+    const {tipsModalOpen, setTipsModalOpen} = useContext(TipsContext);
     useEffect(() => {
         if(action === 'twitter') {
             setLink('https://twitter.com/DharmiKumbhani')
@@ -16,9 +18,17 @@ export default function GrowthActions({action}) {
             setLink('#')
         }
     }, [action])
+
+    function checkAndToggle(){
+        if(action === 'sponsor'){
+            setTipsModalOpen(!tipsModalOpen)
+        } else {
+            null
+        }
+    }
     return (
         <Link href={link} passHref={true}>
-            <Button>
+            <Button onClick={checkAndToggle}>
                 {action === 'sponsor' ? (<SponsorIcon/>) : action === 'twitter' ? <TwitterFilledIcon /> : <GithubFilledIcon />}
             </Button>
         </Link>

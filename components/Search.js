@@ -6,7 +6,7 @@ import {bp} from '../styles/design_system/border-shadow-gutters-bp';
 export default function Search({searchInput, setSearchInput}) {
     return (
         <SearchWrapper>
-            <SearchInput onChange={(event)=> setSearchInput(event.currentTarget.value)} type="search" placeholder='Search' />
+            <SearchInput onChange={(event)=> setSearchInput(event.currentTarget.value.toLowerCase())} type="search" placeholder='Search' />
         </SearchWrapper>
     )
 }

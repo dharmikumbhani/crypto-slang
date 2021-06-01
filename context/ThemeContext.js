@@ -53,11 +53,12 @@ const GlobalStyle = createGlobalStyle`
   :root {
     /* Mobile */
     --font-size-heading1: 44px;
-    --font-size-heading2: 30px;
+    --font-size-heading2: 28px;
     --font-size-heading3: 14px;
     --font-size-bodycopy1: 18px;
     --font-size-bodycopy2: 16px;
-    --font-size-modal-title: 48px;
+    --font-size-modal-title: 30px;
+    --font-size-modal-info: 24px;
 
     /* Borders */
     --border-radius-l: ${borderRadius.mobile.L};
@@ -96,6 +97,7 @@ const GlobalStyle = createGlobalStyle`
       --font-size-heading2: 30px;
       --font-size-heading3: 20px;
       --font-size-modal-title: 38px;
+      --font-size-modal-info: 30px;
 
       --border-radius-l: ${borderRadius.tablet.L};
       --border-radius-m: ${borderRadius.tablet.M};
@@ -165,6 +167,7 @@ function getInitialColorMode() {
 }
 export const SoundOnContext = createContext();
 export const ThemeContext = createContext();
+export const TipsContext = createContext();
 
 export const ThemeContextProvider = ({ children }) => {
     const darkTheme = colors.dark;
@@ -172,6 +175,7 @@ export const ThemeContextProvider = ({ children }) => {
 
     const [soundOn, setSoundOn] = useState(false);
     const [colorMode, rawSetColorMode] = useState('light');
+    const [tipsModalOpen, setTipsModalOpen] = useState(false);
     
     const setColorMode = (value) => {
         rawSetColorMode(value);
@@ -181,10 +185,12 @@ export const ThemeContextProvider = ({ children }) => {
     return (
         <SoundOnContext.Provider value={{soundOn, setSoundOn}}>
           <ThemeContext.Provider value={{ colorMode, setColorMode }}>
+                    <TipsContext.Provider value={{tipsModalOpen, setTipsModalOpen}}>
               <ThemeProvider theme= {colorMode === 'dark' ? darkTheme : lightTheme} >
                   <GlobalStyle/>
-                  {children}
+                      {children}
               </ThemeProvider>
+                    </TipsContext.Provider>
           </ThemeContext.Provider>
         </SoundOnContext.Provider>
     );

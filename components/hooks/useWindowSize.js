@@ -28,6 +28,7 @@ import { useState, useEffect } from 'react';
 export default function useWindowSize() {
   // Initialize state with undefined width/height so server and client renders match
   // Learn more here: https://joshwcomeau.com/react/the-perils-of-rehydration/
+  // https://www.pluralsight.com/guides/re-render-react-component-on-window-resize
   const [windowSize, setWindowSize] = useState({
     width: undefined,
     height: undefined,
