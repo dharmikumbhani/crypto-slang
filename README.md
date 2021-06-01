@@ -1,6 +1,6 @@
 ## Crypto Slang
 
-The official(wannabe) resource for slangs used when dealing with cryptos1
+The [official(wannabe) resource](https://crypto-slang.vercel.app) for slangs used when dealing with cryptos1
 
 ## Submit a new slang:
 Just submit the slang on [google form](https://forms.gle/hjYEWGzacgLwhXcK8) and i will add it post review.
