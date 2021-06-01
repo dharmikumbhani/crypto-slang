@@ -13,7 +13,7 @@ export default function GrowthActions({action}) {
         if(action === 'twitter') {
             setLink('https://twitter.com/DharmiKumbhani')
         } else if(action === 'github') {
-            setLink('https://github.com/')
+            setLink('https://github.com/dharmikumbhani/crypto-slang')
         } else if (action === 'sponsor') {
             setLink('#')
         }
