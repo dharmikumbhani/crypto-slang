@@ -1,12 +1,12 @@
-import React from 'react'
+import React, {useState} from 'react'
 import styled from 'styled-components'
 import DarkModeIcon from '../components/Icons/DarkModeIcon';
 import {bp} from '../styles/design_system/border-shadow-gutters-bp';
 
-export default function Search() {
+export default function Search({searchInput, setSearchInput}) {
     return (
         <SearchWrapper>
-            <SearchInput type="search" placeholder='Search' />
+            <SearchInput onChange={(event)=> setSearchInput(event.currentTarget.value)} type="search" placeholder='Search' />
         </SearchWrapper>
     )
 }
@@ -22,12 +22,6 @@ const SearchWrapper = styled.div`
       align-items: center;
     }
 `;
-// const StyledIcon = styled(searchFill)`
-//   width: 500px;
-//   height: 200px;
-//   fill: palevioletred;
-// `;
-
 const SearchInput =  styled.input`
 /* Removing default Input Tags */
     background-color: transparent;
@@ -87,3 +81,7 @@ const SearchInput =  styled.input`
 // https://stackoverflow.com/questions/62176521/react-svg-import-as-a-component-does-not-render
 // https://stackoverflow.com/questions/55175445/cant-import-svg-into-next-js
 // https://www.pinkdroids.com/blog/svg-react-styled-components/
+
+
+//Final Resource:
+//https://levelup.gitconnected.com/how-to-search-filter-through-data-in-react-26f1545fe3a1

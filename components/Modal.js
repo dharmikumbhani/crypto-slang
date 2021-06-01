@@ -76,3 +76,7 @@
 //   font-size: var(--font-size-heading2);
 //   margin-bottom: var(--gutter-slang-tabs);
 // `;
+
+
+//Resources
+// https://blog.logrocket.com/animations-with-react-spring/

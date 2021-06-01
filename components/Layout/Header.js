@@ -9,7 +9,7 @@ import {bp, BP} from '../../styles/design_system/border-shadow-gutters-bp';
 import useWindowSize from '../hooks/useWindowSize';
 
 export default function Header(props) {
-    // const [soundOn, setSound] = useState(false);
+
     const {soundOn, setSoundOn} = useContext(SoundOnContext);
     const {colorMode, setColorMode} = useContext(ThemeContext);
 
@@ -17,15 +17,12 @@ export default function Header(props) {
     const [size, setSize] = useState("22");
     
     useEffect(() => {
-        console.log('use Effect triggered', windowSize)
+        // console.log('use Effect triggered', windowSize)
         if(windowSize.width > BP.tablet) {
             setSize("32")
         } else {
             setSize("22")
         }
-        // return () => {
-        //     cleanup
-        // }
     }, [size, windowSize.width])
 
     return (

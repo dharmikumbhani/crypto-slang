@@ -7,27 +7,27 @@ import { SoundOnContext } from '../context/ThemeContext';
 export default function Slang({slang, index, setSlangIndex, isOpen, setIsOpen}){
 
     const {soundOn, setSoundOn} = useContext(SoundOnContext);
-    const [soundUrl, setSoundUrl] = useState('')
-    const [soundUrlClick, setSoundUrlClick] = useState('')
+    const [soundVolume, setSoundVolume] = useState(0)
+    const [soundVolumeClick, setSoundVolumeClick] = useState(0)
 
 
     useEffect(() => {
         if(soundOn) {
-            setSoundUrl('/sounds/quietPing.mp3')
-            setSoundUrlClick('/sounds/loudPing.mp3')
+            setSoundVolume(0.2)
+            setSoundVolumeClick(0.1)
         } else {
-            setSoundUrl('')
-            setSoundUrlClick('')
+            setSoundVolume(0)
+            setSoundVolumeClick(0)
         }
     }, [soundOn])
 
     const [play, { stop }] = useSound(
-        soundUrl,
-        { volume: 0.2 }
+        '/sounds/quietPing.mp3',
+        { volume: soundVolume}
     );
     const [playClick, { stopClick }] = useSound(
-        soundUrlClick,
-        { volume: 0.5 }
+        '/sounds/loudPing.mp3',
+        { volume: soundVolumeClick}
     );
     const [isHovering, setIsHovering] = React.useState(
         false
@@ -51,11 +51,9 @@ export default function Slang({slang, index, setSlangIndex, isOpen, setIsOpen}){
           }}
             // onClick={console.log(index)}
           >
-            {/* <li> */}
-                {/* <a> */}
-                    {slang}
-                {/* </a> */}
-            {/* </li> */}
+            {/* <a> */}
+                {slang}
+            {/* </a> */}
         </Tab>
     )
 }

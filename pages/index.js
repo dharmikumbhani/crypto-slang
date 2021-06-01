@@ -1,7 +1,8 @@
 import Head from 'next/head'
 import styled from 'styled-components';
-import {useContext, useState} from 'react';
+import {useContext, useState, useEffect} from 'react';
 import slangs from '../data';
+import slangData from '../data.json';
 import Search from '../components/Search';
 import Slang from '../components/Slang';
 import {bp} from '../styles/design_system/border-shadow-gutters-bp';
@@ -14,7 +15,10 @@ export default function Home() {
   const {colorMode, setColorMode} = useContext(ThemeContext);
   const [slangIndex, setSlangIndex] = useState(0)
   const [isOpen, setIsOpen] = useState(false);
-
+  const [searchInput, setSearchInput] = useState('')
+  // Search Index
+  const [allData,setAllData] = useState(slangData);
+  const [filteredData,setFilteredData] = useState(allData);
   const customStyles = {
     content : {
       top                   : '50%',
@@ -33,6 +37,15 @@ export default function Home() {
     }
   };
 
+  useEffect(() => {
+    let value = searchInput
+    let result = [];
+    result = allData.filter((data) => {
+        return data.slang.search(value) != -1;
+    });
+    setFilteredData(result);
+  }, [searchInput])
+
   function toggleModal() {
     setIsOpen(!isOpen);
   }
@@ -40,7 +53,7 @@ export default function Home() {
   function closeModal(){
     setIsOpen(false);
   }
-  // console.log('index.js Slang', slangIndex)
+
   return (
     <div>
       <Head>
@@ -48,14 +61,15 @@ export default function Home() {
         <meta name="description" content="cryptocurrency slangs" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Search />
+      <Search setSearchInput={setSearchInput} searchInput={searchInput} />
         <SlangsContainer>
-          {slangs.map((s,index) => (<Slang isOpen={isOpen} setIsOpen={setIsOpen} setSlangIndex={setSlangIndex} slang={s.slang} index={index} key={s.slang} />))}
+          {filteredData.map((s,index) => (<Slang isOpen={isOpen} setIsOpen={setIsOpen} setSlangIndex={setSlangIndex} slang={s.slang} index={index} key={s.slang} />))}
         </SlangsContainer>
         {/* <button onClick={toggleModal}>open and close</button> */}
       <Modal
         isOpen={isOpen}
         onRequestClose={closeModal}
+        ariaHideApp={false}
         style={customStyles}
         contentLabel="Slang Info">
         <Heading>
@@ -68,7 +82,6 @@ export default function Home() {
         
         <SlangInfo>{slangs[slangIndex].description}</SlangInfo>
       </Modal>
-
     </div>
   )
 }
@@ -95,8 +108,6 @@ const TitleSlang = styled.h3`
   color:  ${props => props.theme.white};
   text-align: center;
   font-size: var(--font-size-modal-title);
-  /* margin-bottom: 12px; */
-  /* border-bottom: 1px solid ${props => props.theme.secondary1}; */
 `;
 
 const FullForm = styled.p`
@@ -104,9 +115,6 @@ const FullForm = styled.p`
   color:  ${props => props.theme.foregroundCell};
   text-align: left;
   font-size: var(--font-size-heading2);
-  /* margin-bottom: 12px; */
-  /* margin-bottom: var(--gutter-slang-tabs); */
-  /* border-bottom: 1px solid ${props => props.theme.secondary1}; */
 `;
 
 const SlangInfo = styled.p`
