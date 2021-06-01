@@ -1,5 +1,5 @@
 import {createGlobalStyle, ThemeProvider} from 'styled-components';
-import Layout from '../components/layout/Layout';
+import Layout from '../components/Layout/Layout';
 import {ThemeContext, ThemeContextProvider} from '../context/ThemeContext'
 
 
