@@ -15,7 +15,7 @@ Code Base:
 - Database: I did not want to set up an entire cloud database so have made a json object where i will keep adding more slangs as i keep receiving them.
 
 ### ToDo:
-- [ ] Improve SEO.
+- [ ] Improve SEO!!
 - [ ] Custom Animation.
 - [ ] Micro Interactions.
 - [ ] Persistent Dark/Light Mode with Reload.
@@ -23,7 +23,7 @@ Code Base:
 
 
 ## Why?
-Had a free time and this though like a great fun project to develop on the side! i wish to make more such website on and around crypto as and when i get time, which will help me not only be updated on the tech side but also it is in its own way my little contribution to the community.
+Had some free time and this though like a great fun project to develop on the side! i wish to make more such website on and around crypto as and when i get time, which will help me not only stay updated on the tech side but also, it is, in its own way my little contribution to the community.
 
 ## Deploy on Vercel
 
