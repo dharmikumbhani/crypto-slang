@@ -7,6 +7,38 @@ import {borderRadius, shadows, bp} from '../styles/design_system/border-shadow-g
 
 
 const GlobalStyle = createGlobalStyle`
+
+  .ReactModal__Overlay {
+      opacity: 0;
+      transform: translateY(10px);
+      transition: all 300ms ease-in-out;
+  }
+  .ReactModal__Overlay--after-open{
+      transform: translateY(0px);
+      opacity: 1;
+      transition: all 400ms ease-in-out;
+  }
+  .ReactModal__Overlay--before-close{
+      opacity: 0;
+      transform: translateY(10px);
+      transition: all 300ms ease-in-out;
+  }
+
+  .ReactModal__Content{
+      opacity: 0;
+      transform: translateY(10px);
+      transition: all 300ms ease-in-out;
+  } 
+  .ReactModal__Content--after-open{
+      transform: translateY(0px);
+      opacity: 1;
+  }
+  .ReactModal__Content--before-close{
+      opacity: 0;
+      transform: translateY(10px);
+      transition: all 300ms ease-in-out;
+  }
+
   ${reset}
   @font-face {
       font-family: "CUFEL";
@@ -25,6 +57,7 @@ const GlobalStyle = createGlobalStyle`
     --font-size-heading3: 14px;
     --font-size-bodycopy1: 18px;
     --font-size-bodycopy2: 16px;
+    --font-size-modal-title: 48px;
 
     /* Borders */
     --border-radius-l: ${borderRadius.mobile.L};
@@ -62,6 +95,7 @@ const GlobalStyle = createGlobalStyle`
       --font-size-heading1: 88px;
       --font-size-heading2: 30px;
       --font-size-heading3: 20px;
+      --font-size-modal-title: 38px;
 
       --border-radius-l: ${borderRadius.tablet.L};
       --border-radius-m: ${borderRadius.tablet.M};

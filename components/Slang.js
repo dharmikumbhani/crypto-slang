@@ -2,21 +2,22 @@ import React, {useState, useContext, useEffect} from 'react'
 import styled from 'styled-components';
 import useSound from 'use-sound';
 import { SoundOnContext } from '../context/ThemeContext';
-import {useSpring, animated} from 'react-spring';
 // import mediumPing from '../public'
 
-export default function Slang({slang, index, setSlangIndex}){
+export default function Slang({slang, index, setSlangIndex, isOpen, setIsOpen}){
 
-    // const [play] = useSound('/sounds/quietPing.mp3');
     const {soundOn, setSoundOn} = useContext(SoundOnContext);
     const [soundUrl, setSoundUrl] = useState('')
-    // const soundUrl = () => (soundOn?'/sounds/quietPing.mp3':'')ß
-    
+    const [soundUrlClick, setSoundUrlClick] = useState('')
+
+
     useEffect(() => {
         if(soundOn) {
             setSoundUrl('/sounds/quietPing.mp3')
+            setSoundUrlClick('/sounds/loudPing.mp3')
         } else {
             setSoundUrl('')
+            setSoundUrlClick('')
         }
     }, [soundOn])
 
@@ -24,9 +25,14 @@ export default function Slang({slang, index, setSlangIndex}){
         soundUrl,
         { volume: 0.2 }
     );
+    const [playClick, { stopClick }] = useSound(
+        soundUrlClick,
+        { volume: 0.5 }
+    );
     const [isHovering, setIsHovering] = React.useState(
         false
     );
+    // https://github.com/joshwcomeau/use-sound
 
     
     return (
@@ -40,20 +46,21 @@ export default function Slang({slang, index, setSlangIndex}){
           }}
           onClick={() => {
               setSlangIndex(index)
-            //   setModalVisible(true)   
+              setIsOpen(!isOpen)
+              playClick()
           }}
             // onClick={console.log(index)}
           >
             {/* <li> */}
-                <a href="#">
+                {/* <a> */}
                     {slang}
-                </a>
+                {/* </a> */}
             {/* </li> */}
         </Tab>
     )
 }
 
-const Tab = styled(animated.li)`
+const Tab = styled.li`
     /* padding: 0px 6px 6px 6px; */
     padding: 6px;
     display: block;
@@ -67,6 +74,7 @@ const Tab = styled(animated.li)`
     box-shadow: var(--shadow-normal);
     transition: var(--transition-inactive);
     line-height: normal;
+    cursor: pointer;
     :hover{
         transition: var(--transition-active);
         transform: perspective(500px) translateY(-8px);
