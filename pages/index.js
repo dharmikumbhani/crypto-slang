@@ -100,14 +100,14 @@ export default function Home() {
         style={customStyles}
         contentLabel="Slang Info">
         <Heading>
-          <TitleSlang>{slangs[slangIndex].slang}:
+          <TitleSlang>{slangData[slangIndex].slang}:
           </TitleSlang>
         </Heading>
-        {slangs[slangIndex].fullForm !== '' ? (<FullForm>"{slangs[slangIndex].fullForm}"</FullForm>) : null}
+        {slangData[slangIndex].fullForm !== '' ? (<FullForm>"{slangData[slangIndex].fullForm}"</FullForm>) : null}
         
         {/* <TitleSlang>{slangs[slangIndex].slang}:<FullForm>{slangs[slangIndex].fullForm}</FullForm></TitleSlang> */}
         
-        <SlangInfo>{slangs[slangIndex].description}</SlangInfo>
+        <SlangInfo>{slangData[slangIndex].description}</SlangInfo>
       </Modal>
 
       <Modal

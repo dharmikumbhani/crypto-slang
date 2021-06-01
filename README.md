@@ -1,31 +1,29 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+## Crypto Slang
 
-First, run the development server:
+The official(wannabe) resource for slangs used when dealing with cryptos1
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+## Submit a new slang:
+Just submit the slang on [google form](https://forms.gle/hjYEWGzacgLwhXcK8) and i will add it post review.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## Development
+I have made this website in a lot of hurry so apologize for the poor code quality.
+Code Base:
+- Next.js
+- Database: I did not want to set up an entire cloud database so have made a json object where i will keep adding more slangs as i keep receiving them.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+### ToDo:
+- [ ] Improve SEO.
+- [ ] Custom Animation.
+- [ ] Micro Interactions.
+- [ ] Persistent Dark/Light Mode with Reload.
+- [ ] A Custom and better Modal for displaying slang info.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Why?
+Had a free time and this though like a great fun project to develop on the side! i wish to make more such website on and around crypto as and when i get time, which will help me not only be updated on the tech side but also it is in its own way my little contribution to the community.
 
 ## Deploy on Vercel
 
