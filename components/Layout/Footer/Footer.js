@@ -10,7 +10,7 @@ export default function Footer() {
             <ButtonsGroup>
                 <SubmitSlang />
                 <ButtonsBottomGroup>
-                    {actions.map(action => <GrowthActions action={action} />)}
+                    {actions.map(action => <GrowthActions key={action} action={action} />)}
                 </ButtonsBottomGroup>
             </ButtonsGroup>
         </FooterGroup>
